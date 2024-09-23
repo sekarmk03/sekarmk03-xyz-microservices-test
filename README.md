@@ -7,10 +7,14 @@ Integration Test Result
 ## Repository Links
 - [Consumer Service](https://github.com/sekarmk03/xyz-consumer-service)
 - [Transaction Service](https://github.com/sekarmk03/xyz-transaction-service)
+- [Auth Service](https://github.com/sekarmk03/xyz-auth-service)
+- [API Gateway](https://github.com/sekarmk03/xyz-api-gateway)
 
 ## Docker Image Links
 - [Consumer Service](sekarmk03/xyz-consumer-service:latest)
 - [Transaction Service](sekarmk03/xyz-transaction-service:latest)
+- [Auth Service](sekarmk03/xyz-auth-service:latest)
+- [API Gateway](sekarmk03/xyz-api-gateway:latest)
 
 ## Docker Compose
 [Docker Compose File](https://github.com/sekarmk03/sekarmk03-xyz-sigmatech-kreditplus-test/tree/master/compose-microservices)
@@ -18,6 +22,7 @@ Integration Test Result
 ## SQL Files
 - [Consumer DB](https://github.com/sekarmk03/sekarmk03-xyz-sigmatech-kreditplus-test/blob/master/sql/xyz_consumer_management.sql)
 - [Transaction DB](https://github.com/sekarmk03/sekarmk03-xyz-sigmatech-kreditplus-test/blob/master/sql/xyz_transaction_management.sql)
+- [Auth DB](https://github.com/sekarmk03/sekarmk03-xyz-sigmatech-kreditplus-test/blob/master/sql/xyz_auth_db.sql)
 
 ## Diagrams
 - [Architecture Diagram](https://github.com/sekarmk03/sekarmk03-xyz-sigmatech-kreditplus-test/blob/master/Architecture%20Diagram%201%20-%20XYZ%20Company.png)
