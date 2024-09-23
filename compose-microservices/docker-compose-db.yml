@@ -1,0 +1,47 @@
+version: '3.8'
+services:
+  mysql_consumer:
+    container_name: mysql_xyz_consumer
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: consumer0PassR
+      MYSQL_DATABASE: xyz_consumer_management
+      MYSQL_USER: xyz
+      MYSQL_PASSWORD: consumer0Pass
+    ports:
+      - "3307:3306"
+    volumes:
+      - consumer_db_data:/var/lib/mysql
+    networks:
+      - ms_xyz_network
+    restart: always
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+  mysql_transaction:
+    container_name: mysql_transaction
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: transaction1PassR
+      MYSQL_DATABASE: xyz_transaction_management
+      MYSQL_USER: xyz
+      MYSQL_PASSWORD: transaction0Pass
+    ports:
+      - "3308:3306"
+    volumes:
+      - consumer_db_data:/var/lib/mysql
+    networks:
+      - ms_xyz_network
+    restart: always
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+volumes:
+  consumer_db_data:
+  transaction_db_data:
+
+networks:
+  ms_xyz_network:
+    external: true

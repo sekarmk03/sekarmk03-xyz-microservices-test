@@ -1,0 +1,65 @@
+version: '3.8'
+services:
+  xyz-api-gateway:
+    container_name: xyz-api-gateway
+    image: sekarmk03/xyz-api-gateway:latest
+    env_file:
+      - ./xyz-api-gateway/dev.env
+    ports:
+      - "5000:5000"
+    networks:
+      - ms_xyz_network
+    restart: always
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    volumes:
+      - ./certs:/etc/ssl/certs:ro
+
+  xyz-auth-service:
+    container_name: xyz-auth-service
+    image: sekarmk03/xyz-auth-service:latest
+    env_file:
+      - ./tracerstudy-xyz-service/.env
+    ports:
+      - "50050:50050"
+    networks:
+      - ms_xyz_network
+    restart: always
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+  xyz-consumer-service:
+    container_name: xyz-consumer-service
+    image: sekarmk03/xyz-consumer-service:latest
+    env_file:
+      - ./xyz-consumer-service/.env
+    ports:
+      - "50051:50051"
+    networks:
+      - ms_xyz_network
+    restart: always
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+  xyz-transaction-service:
+    container_name: xyz-transaction-service
+    image: sekarmk03/xyz-transaction-service:latest
+    env_file:
+      - ./xyz-transaction-service/.env
+    ports:
+      - "50052:50052"
+    networks:
+      - ms_xyz_network
+    restart: always
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    volumes:
+      - /home/user/projects/xyz-microservices/uploads:/app/uploads
+
+networks:
+  ms_xyz_network:
+    external: true
